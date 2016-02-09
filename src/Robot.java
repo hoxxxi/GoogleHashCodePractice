@@ -140,4 +140,31 @@ public class Robot {
 		result = this.counter + "\n" + result;
 		return result;
 	}
+
+	public boolean canDrawVectorOnBoard(Vector v)
+	{
+		int[] startPos = v.getStartPosition();
+		int[] endPos = v.getEndPosition();
+		
+		boolean isHorizontal = startPos[1] - endPos[1] == 0;  
+		
+		for (int i = 0; i < v.getLength(); i++) {
+			if (isHorizontal){
+				if ( canvas[startPos[0] + i][startPos[1]].equals("#") ){
+					return false;
+				}
+			}
+			else{
+				if (canvas[startPos[0]][startPos[1] + i].equals("#"))
+				{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	public int getCounter(){
+		return counter;
+	}
+
 }

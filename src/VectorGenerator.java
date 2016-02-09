@@ -26,9 +26,19 @@ public class VectorGenerator {
 						int counter = 0;
 
 						switch (direction) {
-						case UP:
-							while (i - counter > -1 ) {
-								if (!inputCanvas[i - counter][j].equals("."))
+//						case UP:
+//							while (i - counter > -1 ) {
+//								if (!inputCanvas[i - counter][j].equals("."))
+//									counter++;
+//								else
+//									break;
+//							}
+//							vectorsGenerated.add(new Vector(i, j, i - counter, j));
+//							break;
+							
+						case DOWN:
+							while (i + counter < rows ) {
+								if(inputCanvas[i + counter][j].equals("#"))
 									counter++;
 								else
 									break;
@@ -36,29 +46,19 @@ public class VectorGenerator {
 							vectorsGenerated.add(new Vector(i, j, i + counter, j));
 							break;
 							
-						case DOWN:
-							while (i + counter < rows ) {
-								if(!inputCanvas[i + counter][j].equals("."))
-									counter++;
-								else
-									break;
-							}
-							vectorsGenerated.add(new Vector(i, j, i - counter, j));
-							break;
-							
-						case LEFT:
-							while (j - counter > -1 ) {
-								if(!inputCanvas[i][j - counter].equals("."))
-									counter++;
-								else
-									break;
-								}
-							vectorsGenerated.add(new Vector(i, j, i, j - counter));
-							break;
+//						case LEFT:
+//							while (j - counter > -1 ) {
+//								if(!inputCanvas[i][j - counter].equals("."))
+//									counter++;
+//								else
+//									break;
+//								}
+//							vectorsGenerated.add(new Vector(i, j, i, j - counter));
+//							break;
 							
 						case RIGHT:
 							while (j + counter < cols ) {
-								if(!inputCanvas[i][j + counter].equals("."))
+								if(inputCanvas[i][j + counter].equals("#"))
 									counter++;
 								else
 									break;

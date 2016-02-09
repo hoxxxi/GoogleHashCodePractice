@@ -5,8 +5,8 @@ public class Vector implements Comparable<Vector>{
 
 	public Vector(int xS, int yS, int xE, int yE) {
 		this.xStart = xS;
-		this.xEnd = xE;
 		this.yStart = yS;
+		this.xEnd = xE;
 		this.yEnd = yE;
 		this.length = Math.abs(xStart - xEnd + yStart - yEnd);
 	}
@@ -25,6 +25,6 @@ public class Vector implements Comparable<Vector>{
 
 	@Override
 	public int compareTo(Vector o) {
-		return Integer.compare(length, o.getLength());
+		return Integer.compare(o.getLength(), length );
 	}
 }
