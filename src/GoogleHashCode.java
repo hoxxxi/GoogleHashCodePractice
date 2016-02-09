@@ -9,8 +9,8 @@ public class GoogleHashCode {
 
 	public static void main(String[]args) throws IOException
 	{
-//		BufferedReader in = new BufferedReader(new FileReader("input.txt"));
-		BufferedReader in = new BufferedReader(new FileReader("logo.in"));
+		//BufferedReader in = new BufferedReader(new FileReader("input.txt"));
+		BufferedReader in = new BufferedReader(new FileReader("learn_and_teach.in"));
 		String row_col[] = in.readLine().split(" ");
 
 		int rows = Integer.parseInt(row_col[0]);
@@ -46,9 +46,19 @@ public class GoogleHashCode {
 		/* Sort array in ascending order */
 		Collections.sort(vectors);
 		
+		ArrayList<Square> squares = new SquareGenerator(board).generateSquares();
+		
+		System.out.println("Number of squares:" + squares.size());
+		
 		
 		
 		int counter = 0;
+		
+		for(Square square: squares) {
+			r.writeSquare(square.getCentreX(), square.getCentreY(), square.getSize());
+			counter++;
+			//System.out.println("center point X:(" + square.getCentreX() + ",  point Y" + square.getCentreY() + ") , size:(" + square.getSize() + ")");
+		}
 		
 		for(Vector vector: vectors)
 		{
@@ -63,9 +73,10 @@ public class GoogleHashCode {
 			else 
 				continue;
 		}
+		
+		r.printCanvas();
 		System.out.println("Number of instructions = " + counter);
 		System.out.println("Points earned = "+ (rows*cols - counter));
-		r.printCanvas();
 	}
 	
 }
