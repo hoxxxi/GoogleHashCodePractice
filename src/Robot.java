@@ -148,7 +148,7 @@ public class Robot {
 		
 		boolean isHorizontal = startPos[1] - endPos[1] == 0;  
 		
-		for (int i = 0; i < v.getLength(); i++) {
+		for (int i = 0; i < v.getLength()+1; i++) {
 			if (isHorizontal){
 				if ( canvas[startPos[0] + i][startPos[1]].equals("#") ){
 					return false;

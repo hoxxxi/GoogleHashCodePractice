@@ -9,8 +9,8 @@ public class GoogleHashCode {
 
 	public static void main(String[]args) throws IOException
 	{
-		BufferedReader in = new BufferedReader(new FileReader("input.txt"));
-//		BufferedReader in = new BufferedReader(new FileReader("logo.in"));
+//		BufferedReader in = new BufferedReader(new FileReader("input.txt"));
+		BufferedReader in = new BufferedReader(new FileReader("logo.in"));
 		String row_col[] = in.readLine().split(" ");
 
 		int rows = Integer.parseInt(row_col[0]);
@@ -57,13 +57,14 @@ public class GoogleHashCode {
 			if(r.canDrawVectorOnBoard(vector))
 			{
 				System.out.println("start:(" + start[0] + ", " + start[1] + ") , end:(" + end[0] + ", " +end[1]+ ")");
-				r.writeLine(start[0], start[1], end[0]-1, end[1]);
+				r.writeLine(start[0], start[1], end[0], end[1]);
 				counter++;
 			}
 			else 
 				continue;
 		}
 		System.out.println("Number of instructions = " + counter);
+		System.out.println("Points earned = "+ (rows*cols - counter));
 		r.printCanvas();
 	}
 	

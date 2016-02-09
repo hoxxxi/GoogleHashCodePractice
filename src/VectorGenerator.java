@@ -17,8 +17,8 @@ public class VectorGenerator {
 	}
 
 	public ArrayList<Vector> generateVectors() {
-		for (int i = 0; i < inputCanvas.length; i++) {
-			for (int j = 0; j < inputCanvas[0].length; j++) {
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < cols; j++) {
 				
 				if (inputCanvas[i][j].equals("#") ) {
 					
@@ -37,11 +37,13 @@ public class VectorGenerator {
 //							break;
 							
 						case DOWN:
-							while (i + counter < rows ) {
-								if(inputCanvas[i + counter][j].equals("#"))
+							while (i + counter + 1< rows) {
+								if(inputCanvas[i + counter+1][j].equals("#"))
 									counter++;
 								else
+								{
 									break;
+								}
 							}
 							vectorsGenerated.add(new Vector(i, j, i + counter, j));
 							break;
@@ -57,11 +59,13 @@ public class VectorGenerator {
 //							break;
 							
 						case RIGHT:
-							while (j + counter < cols ) {
-								if(inputCanvas[i][j + counter].equals("#"))
+							while (j + counter + 1 < cols ) {
+								if(inputCanvas[i][j + counter + 1].equals("#"))
 									counter++;
 								else
+								{
 									break;
+								}
 							}
 							vectorsGenerated.add(new Vector(i, j, i, j + counter));
 							break;
