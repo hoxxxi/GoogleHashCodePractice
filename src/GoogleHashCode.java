@@ -30,7 +30,7 @@ public class GoogleHashCode {
 		in.close();
 				
 		Robot r = new Robot(board);
-		r.printInput();
+//		r.printInput();
 
 		System.out.println();
 		
@@ -64,7 +64,7 @@ public class GoogleHashCode {
 			else 
 				continue;
 		}
-		r.printCanvas();
+//		r.printCanvas();
 		System.out.println("Number of instructions = " + counter);
 		System.out.println("Points earned = "+ (rows*cols - counter));
 		System.out.println("Canvas are matched:" + r.compareInputWithOutput());

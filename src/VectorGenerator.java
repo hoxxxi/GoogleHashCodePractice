@@ -38,7 +38,7 @@ public class VectorGenerator {
 							
 						case DOWN:
 							while (i + counter + 1< rows) {
-								if(inputCanvas[i + counter+1][j].equals("#"))
+								if(inputCanvas[i + counter + 1][j].equals("#"))
 									counter++;
 								else
 								{

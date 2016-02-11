@@ -91,17 +91,20 @@ public class Robot {
 	}
 
 	public boolean compareInputWithOutput() {
+
 		int mismatched = 0;
 		for (int i = 0; i < board.length; i++) {
 			for (int j = 0; j < board[0].length; j++) {
-				if (!board[i][j].equals(canvas[i][j]))
+				if (!board[i][j].equals(canvas[i][j])) {
 					mismatched++;
+					System.out.println("row: " + i + ", col: " + j);
+				}
 			}
 		}
-		if(mismatched == 0)
+		if (mismatched == 0)
 			return true;
-		else{
-			System.err.println("Number of mismatched:" + mismatched);
+		else {
+			System.out.println("Number of mismatched:" + mismatched);
 			return false;
 		}
 	}
@@ -138,7 +141,7 @@ public class Robot {
 
 		boolean isHorizontal = startPos[1] - endPos[1] == 0;
 
-		for (int i = 0; i < v.getLength() + 1; i++) {
+		for (int i = 0; i < v.getLength(); i++) {
 			if (isHorizontal) {
 				if (canvas[startPos[0] + i][startPos[1]].equals("#")) {
 					return false;

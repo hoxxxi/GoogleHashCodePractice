@@ -8,7 +8,7 @@ public class Vector implements Comparable<Vector>{
 		this.yStart = yS;
 		this.xEnd = xE;
 		this.yEnd = yE;
-		this.length = Math.abs(xStart - xEnd + yStart - yEnd);
+		this.length = Math.abs(xStart - xEnd + yStart - yEnd) + 1;
 	}
 
 	public int getLength() {
