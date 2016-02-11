@@ -36,16 +36,17 @@ public class GetInstructions {
 					listOfDronesForTask.add(new DroneWithDistance(distance, drone, warehouse));
 				}
 			}
+			
 			Collections.sort(listOfDronesForTask);
 			DroneWithDistance bestDroneForTask = listOfDronesForTask.get(0);
 
-			order.executeWithDrone(bestDroneForTask.getDrone());
-			availableDrones.remove(bestDroneForTask.getDrone());
+			order.executeWithDrone( bestDroneForTask.getDrone() );
+			availableDrones.remove( bestDroneForTask.getDrone() );
 
 		}
 	}
 
 	public static int distanceBetween(Location l1, Location l2) {
-		return (int) Math.ceil(Math.sqrt(Math.pow((l1.x - l2.x), 2) + Math.pow((l1.y - l2.y), 2)));
+		return (int) Math.ceil(Math.sqrt(Math.pow((l1.x - l2.x), 2) + Math.pow( (l1.y - l2.y), 2) ) );
 	}
 }

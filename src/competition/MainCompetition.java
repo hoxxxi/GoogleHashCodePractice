@@ -57,9 +57,9 @@ public class MainCompetition {
 			orderList.push(new Order(new Location(Integer.parseInt(orderCoordinates1[0]), Integer.parseInt(orderCoordinates1[1])), productTypes1));
 		}
 		
-		while there are some tasks {
-			while there are drones or tasks available {
-				
+		while ( !orderList.isEmpty() && !droneList.isEmpty()) {
+			{
+				GetInstructions();
 			}
 		}
 	}
