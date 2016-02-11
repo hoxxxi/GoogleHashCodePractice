@@ -21,5 +21,8 @@ public class DroneWithDistance implements Comparable<DroneWithDistance>{
 		return distance;
 	}
 	
-	
+	public Drone getDrone(){
+		return drone;
+	}
+
 }

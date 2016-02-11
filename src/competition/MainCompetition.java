@@ -65,9 +65,9 @@ public class MainCompetition {
 			orderList.push(new Order(new Location(Integer.parseInt(orderCoordinates1[0]), Integer.parseInt(orderCoordinates1[1])), productTypesAndQUantities));
 		}
 		
-		while ( !orderList.isEmpty() && !droneList.isEmpty()) {
+		while ( !orderList.isEmpty()) {
 			{
-				GetInstructions();
+				GetInstructions(orderList,);
 			}
 		}
 	}
