@@ -13,6 +13,7 @@ public class GlobalClock extends Observable {
 	public static GlobalClock getClock() {
 		if (gc == null) {
 			gc = new GlobalClock();
+			return gc;
 		} else {
 			return gc;
 		}
