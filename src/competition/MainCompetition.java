@@ -13,7 +13,7 @@ public class MainCompetition {
 	public static void main(String[]args) throws IOException
 	{
 		//Take input
-		BufferedReader in = new BufferedReader(new FileReader("C:\\Users\\User\\workspace\\GoogleHashCode\\src\\competition\\input.txt"));
+		BufferedReader in = new BufferedReader(new FileReader("inputComp.txt"));
 		
 		String []landscapeDefinition = in.readLine().split(" ");//{"100", "100", "3", "50", "500"}; // grid h, grid w, n of drones, deadline, drone payload
 		
@@ -41,7 +41,7 @@ public class MainCompetition {
 			{
 				inventory.put(productTypes.get(bah), Integer.parseInt(quanttyOfEachProductatWarehouse1[bah]));
 			}
-			warehouseList.add(new Warehouse(Integer.parseInt(warehouseCoordinate1[0]),Integer.parseInt(warehouseCoordinate1[0]),inventory));
+			warehouseList.add(new Warehouse(new Location(Integer.parseInt(warehouseCoordinate1[0]),Integer.parseInt(warehouseCoordinate1[0])),inventory));
 			
 		}		
 		int numberOfOrders = Integer.parseInt(in.readLine());
@@ -51,7 +51,7 @@ public class MainCompetition {
 			String []orderCoordinates1 = in.readLine().split(" ");
 			int numberOFItems1 = Integer.parseInt(in.readLine());
 			String []productTypes1 = in.readLine().split(" "); //Change to dictionary
-			orderList.add(new Order(Integer.parseInt(orderCoordinates1[0]), Integer.parseInt(orderCoordinates1[1]), productTypes1));
+			orderList.push(new Order(new Location(Integer.parseInt(orderCoordinates1[0]), Integer.parseInt(orderCoordinates1[1])), productTypes1));
 		}
 	}
 }

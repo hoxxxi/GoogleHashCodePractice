@@ -1,16 +1,15 @@
 package competition;
 
-import java.util.Dictionary;
 import java.util.HashMap;
 
-public class Warehouse {
-	int x;
-	int y;
+public class Warehouse {	
+	int ID;
+	Location location;
 	HashMap<Product, Integer> inventory;
-	public Warehouse(int xIn, int yIn, HashMap inventoryIn)
+	
+	public Warehouse(Location loc, HashMap inventoryIn)
 	{
-		x = xIn;
-		y = yIn;
+		this.location = loc;
 		inventoryIn = inventoryIn;
 	}
 }

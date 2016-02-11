@@ -1,13 +1,12 @@
 package competition;
 
 public class Order {
-	int x;
-	int y;
+	int ID;
+	Location location;
 	String []itemIDs;
-	public Order(int xIn, int yIn, String[]itemsIDsIn)
+	public Order( Location loc, String[]itemsIDsIn)
 	{
-		this.x=xIn;
-		this.y=yIn;
+		this.location = loc;
 		this.itemIDs=itemsIDsIn;
 	}
 }
