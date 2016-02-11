@@ -9,24 +9,24 @@ import competition.Product;
 
 public class Drone implements Observer {
 
-	Location currentLocation;
+	Location location;
 	Order assignedOrder;
 	int time = 0;
 			
 	public Drone(Location currentLocation, Order assignedOrder, Product loaded,
 			boolean isOccupied) {
 		super();
-		this.currentLocation = currentLocation;
+		this.location = currentLocation;
 		this.assignedOrder = assignedOrder;
 		this.loaded = loaded;
 		this.isOccupied = isOccupied;
 	}
 	static int maxCapacity;
-	public Location getCurrentLocation() {
-		return currentLocation;
+	public Location getLocation() {
+		return location;
 	}
 	public void setCurrentLocation(Location currentLocation) {
-		this.currentLocation = currentLocation;
+		this.location = currentLocation;
 	}
 	public Order getAssignedOrder() {
 		return assignedOrder;
