@@ -9,13 +9,15 @@ import competition.Product;
 
 public class Drone implements Observer {
 
+	int ID;
 	Location location;
 	Order assignedOrder;
 	int time = 0;
 			
 	public Drone(Location currentLocation, Order assignedOrder, Product loaded,
-			boolean isOccupied) {
+			boolean isOccupied, int ID) {
 		super();
+		this.ID = ID;
 		this.location = currentLocation;
 		this.assignedOrder = assignedOrder;
 		this.loaded = loaded;
@@ -60,6 +62,21 @@ public class Drone implements Observer {
 		this.time = (Integer) arg1;		
 	}
 	
+	public String unload(Warehouse w, int numberOfProducts, Product p) {
+		return this.ID + " " + "U" + " " + w.ID + " " + p.ID + " " + numberOfProducts;
+	}
+	
+	public String load(Warehouse w, int numberOfProducts, Product p) {
+		return this.ID + " " + "L" + " " + w.ID + " " + p.ID + " " + numberOfProducts;
+	}
+	
+	public String deliver(Warehouse w, int numberOfProducts, Product p, Order o) {
+		return this.ID + " " + "D" + " " + o.ID + " " + p.ID + " " + numberOfProducts;
+	}
+	
+	public String wait(int numOfTurns) {
+		return this.ID + " " + "W" + " " + numOfTurns;
+	}
 	
 	
 }
