@@ -18,7 +18,12 @@ public class MainCompetition {
 		BufferedReader in = new BufferedReader(new FileReader("inputComp.txt"));
 		
 		String []landscapeDefinition = in.readLine().split(" ");//{"100", "100", "3", "50", "500"}; // grid h, grid w, n of drones, deadline, drone payload
-		
+		int numberOfDrones = Integer.parseInt(landscapeDefinition[3]);
+		Stack<Drone> droneStack = new Stack<>();
+		for(int ruk = 0;ruk<numberOfDrones;ruk++)
+		{
+			droneStack.push(new Drone(new Location(0, 0), null, null, false, ruk));
+		}
 		GlobalClock.getClock();
 		
 		int numberOfProductTypes = Integer.parseInt(in.readLine());
