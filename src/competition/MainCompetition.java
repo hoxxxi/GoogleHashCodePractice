@@ -8,6 +8,8 @@ import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Stack;
 
+import mainCompetition.GlobalClock;
+
 public class MainCompetition {
 
 	public static void main(String[]args) throws IOException
@@ -17,6 +19,7 @@ public class MainCompetition {
 		
 		String []landscapeDefinition = in.readLine().split(" ");//{"100", "100", "3", "50", "500"}; // grid h, grid w, n of drones, deadline, drone payload
 		
+		GlobalClock.getClock();
 		
 		int numberOfProductTypes = Integer.parseInt(in.readLine());
 		ArrayList<Product> productTypes = new ArrayList<Product>();
@@ -60,6 +63,12 @@ public class MainCompetition {
 				productTypesAndQUantities.put(word, count + 1);
 			}
 			orderList.push(new Order(new Location(Integer.parseInt(orderCoordinates1[0]), Integer.parseInt(orderCoordinates1[1])), productTypesAndQUantities));
+		}
+		
+		while there are some tasks {
+			while there are drones or tasks available {
+				
+			}
 		}
 	}
 }
