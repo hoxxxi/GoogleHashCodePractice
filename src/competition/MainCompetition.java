@@ -54,7 +54,15 @@ public class MainCompetition {
 			String []orderCoordinates1 = in.readLine().split(" ");
 			int numberOFItems1 = Integer.parseInt(in.readLine());
 			String []productTypes1 = in.readLine().split(" "); //Change to dictionary
-			orderList.push(new Order(new Location(Integer.parseInt(orderCoordinates1[0]), Integer.parseInt(orderCoordinates1[1])), productTypes1));
+			HashMap<Product, Integer> productTypesAndQUantities = new HashMap<>();
+			
+			for(int kur = 0; kur<productTypes1.length; kur++)
+			{
+				Product word =productTypes.get(Integer.parseInt(productTypes1[kur]));
+				int count = productTypesAndQUantities.containsKey(word) ? productTypesAndQUantities.get(word) : 0;
+				productTypesAndQUantities.put(word, count + 1);
+			}
+			orderList.push(new Order(new Location(Integer.parseInt(orderCoordinates1[0]), Integer.parseInt(orderCoordinates1[1])), productTypesAndQUantities));
 		}
 		
 		while ( !orderList.isEmpty() && !droneList.isEmpty()) {
