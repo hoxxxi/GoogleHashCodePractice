@@ -6,13 +6,16 @@ import java.util.Collections;
 import javax.swing.text.Utilities;
 
 public class GetInstructions {
-	public GetInstructions() {
-		ArrayList<Order> pendingOrders;
+	Stack<Order> pendingOrders;
 
-		ArrayList<Drone> availableDrones;
-		ArrayList<DroneWithDistance> listOfDronesForTask;
+	ArrayList<Drone> availableDrones;
+	ArrayList<DroneWithDistance> listOfDronesForTask;
 
-		ArrayList<Warehouse> warehouses;
+	ArrayList<Warehouse> warehouses;
+	public GetInstructions(Stack<Order> pendingOrders, ) {
+		this.pendingOrders = pendingOrders;
+		this.availableDrones = availDrones;
+		listOfDronesForTask = new ArrayList<DroneWithDistance>();
 
 		for (Order order : pendingOrders)
 
@@ -40,7 +43,7 @@ public class GetInstructions {
 			Collections.sort(listOfDronesForTask);
 			DroneWithDistance bestDroneForTask = listOfDronesForTask.get(0);
 
-			order.executeWithDrone( bestDroneForTask.getDrone() );
+			order.executeWithDrone( bestDroneForTask );
 			availableDrones.remove( bestDroneForTask.getDrone() );
 
 		}

@@ -17,4 +17,9 @@ public class Warehouse {
 		
 		return false;
 	}
+
+	public Location getLocation() {
+		// TODO Auto-generated method stub
+		return location;
+	}
 }
