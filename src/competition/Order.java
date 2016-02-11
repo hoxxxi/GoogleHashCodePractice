@@ -19,10 +19,16 @@ public class Order {
 	}
 	public void executeWithDrone(DroneWithDistance bestDroneForTask) {
 		Drone drone = bestDroneForTask.getDrone();
+		Warehouse warehouse = bestDroneForTask.getWarehouse();
+		Set<Product> keys = itemIDs.keySet();
+		for(Integer numorders: itemIDs.values()) {
+				drone.load( warehouse, numorders)
+		}
+		send to client
+		unload
 		
 	}
 	public Location getLocation() {
-		// TODO Auto-generated method stub
 		return location;
 	}
 }
