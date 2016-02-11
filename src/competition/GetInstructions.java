@@ -12,13 +12,15 @@ public class GetInstructions {
 	ArrayList<DroneWithDistance> listOfDronesForTask;
 
 	ArrayList<Warehouse> warehouses;
-	public GetInstructions(Stack<Order> pendingOrders, ) {
+	public GetInstructions(Stack<Order> pendingOrders, ArrayList<Drone> availDrones) {
+		
 		this.pendingOrders = pendingOrders;
 		this.availableDrones = availDrones;
 		listOfDronesForTask = new ArrayList<DroneWithDistance>();
 
 		for (Order order : pendingOrders)
-
+		if( order.getMass()) > Drone.getMaxCapacity() )
+			continue;
 		{
 
 			ArrayList<Warehouse> possibleWarehouseList = new ArrayList<Warehouse>();
