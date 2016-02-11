@@ -6,37 +6,46 @@ import java.util.Collections;
 import javax.swing.text.Utilities;
 
 public class GetInstructions {
-	ArrayList<Order> pendingOrders;
-	
-	ArrayList<Drone> availableDrones;
-	ArrayList<DroneWithDistance> listOfDronesForTask;
-	
-	ArrayList<Warehouse> warehouses;
-	
-	for(Order order:pendingOrders){
+	public GetInstructions() {
+		ArrayList<Order> pendingOrders;
 
-		ArrayList<Warehouse> possibleWarehouseList = new ArrayList<Warehouse>();
-		
-		for(Warehouse warehouse: warehouses){
-			if(warehouse.hasEnoughProducts(order)) // Check if given warehouse has enough products
-			{
-				possibleWarehouseList.add(warehouse);
+		ArrayList<Drone> availableDrones;
+		ArrayList<DroneWithDistance> listOfDronesForTask;
+
+		ArrayList<Warehouse> warehouses;
+
+		for (Order order : pendingOrders)
+
+		{
+
+			ArrayList<Warehouse> possibleWarehouseList = new ArrayList<Warehouse>();
+
+			for (Warehouse warehouse : warehouses) {
+				if (warehouse.hasEnoughProducts(order)) // Check if given
+														// warehouse
+														// has enough products
+				{
+					possibleWarehouseList.add(warehouse);
+				}
 			}
-		}
-		
-		for(Warehouse warehouse: possibleWarehouseList){
-			for(Drone drone: availableDrones)
-			{
-				int distance = distanceBetween( drone, warehouse) + distanceBetween( warehouse, order);
-				listOfDronesForTask.add(new DroneWithDistance(distance, drone));
+
+			for (Warehouse warehouse : possibleWarehouseList) {
+				for (Drone drone : availableDrones) {
+					int distance = distanceBetween(drone.getLocation(), warehouse.getLocation())
+							+ distanceBetween(warehouse.getLocation(), order.getLocation());
+					listOfDronesForTask.add(new DroneWithDistance(distance, drone, warehouse));
+				}
 			}
+			Collections.sort(listOfDronesForTask);
+			DroneWithDistance bestDroneForTask = listOfDronesForTask.get(0);
+
+			order.executeWithDrone(bestDroneForTask.getDrone());
+			availableDrones.remove(bestDroneForTask.getDrone());
+
 		}
-		Collections.sort(listOfDronesForTask);
-		execute Order with drone with lowest distance
-		order.executeWithDrone(listOfDronesForTask.get(0));
-		remove drone from dronesAvailable
-		remove products from warehouse
 	}
-	
-	
+
+	public static int distanceBetween(Location l1, Location l2) {
+		return (int) Math.ceil(Math.sqrt(Math.pow((l1.x - l2.x), 2) + Math.pow((l1.y - l2.y), 2)));
+	}
 }

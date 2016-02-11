@@ -53,5 +53,11 @@ public class MainCompetition {
 			String []productTypes1 = in.readLine().split(" "); //Change to dictionary
 			orderList.push(new Order(new Location(Integer.parseInt(orderCoordinates1[0]), Integer.parseInt(orderCoordinates1[1])), productTypes1));
 		}
+		
+		while there are some tasks {
+			while there are drones or tasks available {
+				
+			}
+		}
 	}
 }

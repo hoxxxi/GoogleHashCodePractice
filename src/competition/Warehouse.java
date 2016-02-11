@@ -12,4 +12,9 @@ public class Warehouse {
 		this.location = loc;
 		inventoryIn = inventoryIn;
 	}
+
+	public boolean hasEnoughProducts(Order order) {
+		
+		return false;
+	}
 }

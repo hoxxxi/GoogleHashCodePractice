@@ -1,4 +1,4 @@
-package mainCompetition;
+package competition;
 
 public class Drone {
 
