@@ -7,6 +7,15 @@ public class Warehouse {
 	Location location;
 	HashMap<Product, Integer> inventory;
 	
+	public boolean satisfyOrder(Order order)
+	{
+		for(Product p:inventory.keySet())
+		{
+			if(inventory.get(p) < order.itemIDs.get(p))
+				return false;
+		}
+		return true;
+	}
 	public Warehouse(Location loc, HashMap inventoryIn)
 	{
 		this.location = loc;

@@ -1,6 +1,6 @@
 package competition;
 
-public class Product {
+public class Product implements Comparable<Product> {
 	int ID;
 	int weight;
 	public Product(int IDin, int weightIn)
@@ -11,5 +11,9 @@ public class Product {
 	public int getWeight()
 	{
 		return this.weight;
+	}
+	@Override
+	public int compareTo(Product o) {
+		return ((Integer)this.weight).compareTo(o.getWeight());
 	}
 }

@@ -1,11 +1,14 @@
 package competition;
 
+import java.util.HashMap;
+
 public class Order {
 	int ID;
 	Location location;
-	String []itemIDs;
-	public Order( Location loc, String[]itemsIDsIn)
+	HashMap<Product, Integer> itemIDs;
+	public Order( Location loc, HashMap<Product, Integer> itemsIDsIn)
 	{
+		itemIDs = itemsIDsIn;
 		this.location = loc;
 		this.itemIDs=itemsIDsIn;
 	}
