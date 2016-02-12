@@ -20,6 +20,7 @@ public class MainCompetition {
 		String []landscapeDefinition = in.readLine().split(" ");//{"100", "100", "3", "50", "500"}; // grid h, grid w, n of drones, deadline, drone payload
 		int numberOfDrones = Integer.parseInt(landscapeDefinition[3]);
 		Stack<Drone> droneStack = new Stack<>();
+		
 		for(int ruk = 0;ruk<numberOfDrones;ruk++)
 		{
 			droneStack.push(new Drone(new Location(0, 0), null, null, false, ruk));
@@ -52,6 +53,7 @@ public class MainCompetition {
 			warehouseList.add(new Warehouse(new Location(Integer.parseInt(warehouseCoordinate1[0]),Integer.parseInt(warehouseCoordinate1[0])),inventory));
 			
 		}		
+		
 		int numberOfOrders = Integer.parseInt(in.readLine());
 		Stack<Order> orderList = new Stack<Order>();
 		for(int i =0;i<numberOfOrders;i++)
@@ -72,7 +74,7 @@ public class MainCompetition {
 		
 		while ( !orderList.isEmpty()) {
 			{
-				GetInstructions(orderList,);
+//				GetInstructions(orderList);
 			}
 		}
 	}

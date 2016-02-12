@@ -2,7 +2,8 @@ package competition;
 
 import java.util.HashMap;
 
-public class Warehouse {	
+public class Warehouse {
+	
 	int ID;
 	Location location;
 	HashMap<Product, Integer> inventory;

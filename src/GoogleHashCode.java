@@ -13,8 +13,8 @@ public class GoogleHashCode {
 	{
 //		BufferedReader in = new BufferedReader(new FileReader("input.txt"));
 //		BufferedReader in = new BufferedReader(new FileReader("logo.in"));
-//		BufferedReader in = new BufferedReader(new FileReader("right_angle.in"));
-		BufferedReader in = new BufferedReader(new FileReader("learn_and_teach.in"));
+		BufferedReader in = new BufferedReader(new FileReader("right_angle.in"));
+//		BufferedReader in = new BufferedReader(new FileReader("learn_and_teach.in"));
 		
 		String row_col[] = in.readLine().split(" ");
 
