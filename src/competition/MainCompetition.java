@@ -81,6 +81,8 @@ public class MainCompetition {
 				
 				Location orderLocation = currentOrder.getLocation();
 				
+				HashMap<Product, Integer> itemsInOrder = currentOrder.getItemIDs();
+				
 				for(Drone dr: droneArray)
 				{
 					if (!dr.isOccupied)
@@ -100,7 +102,10 @@ public class MainCompetition {
 								}
 							}
 						}
+						
+						
 						dr.load(preferredWarehouse, numberOfProducts, p)
+						dr.d
 					}
 				}
 //				GetInstructions(orderList,);
