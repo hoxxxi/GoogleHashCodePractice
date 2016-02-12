@@ -72,7 +72,7 @@ public class MainCompetition {
 		
 		while ( !orderList.isEmpty()) {
 			{
-				GetInstructions(orderList,);
+//				GetInstructions(orderList,);
 			}
 		}
 	}
