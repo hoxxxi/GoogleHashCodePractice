@@ -17,6 +17,10 @@ public class Order {
 		
 		return massOfProducts;
 	}
+	public HashMap<Product, Integer> getItemIDs()
+	{
+		return this.itemIDs;
+	}
 	public void executeWithDrone(DroneWithDistance bestDroneForTask) {
 		Drone drone = bestDroneForTask.getDrone();
 		Warehouse warehouse = bestDroneForTask.getWarehouse();

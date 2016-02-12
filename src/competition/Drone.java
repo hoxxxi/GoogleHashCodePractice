@@ -12,11 +12,13 @@ public class Drone implements Observer {
 	int ID;
 	Location location;
 	Order assignedOrder;
+	int capacity;
 	int time = 0;
 			
 	public Drone(Location currentLocation, Order assignedOrder, Product loaded,
-			boolean isOccupied, int ID) {
+			boolean isOccupied, int capacityIn, int ID) {
 		super();
+		this.capacity=capacityIn;
 		this.ID = ID;
 		this.location = currentLocation;
 		this.assignedOrder = assignedOrder;

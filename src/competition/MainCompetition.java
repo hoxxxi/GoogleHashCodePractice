@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Stack;
 
@@ -18,11 +17,13 @@ public class MainCompetition {
 		BufferedReader in = new BufferedReader(new FileReader("inputComp.txt"));
 		
 		String []landscapeDefinition = in.readLine().split(" ");//{"100", "100", "3", "50", "500"}; // grid h, grid w, n of drones, deadline, drone payload
+		
+		int deadline = Integer.parseInt(landscapeDefinition[3]);
 		int numberOfDrones = Integer.parseInt(landscapeDefinition[3]);
-		Stack<Drone> droneStack = new Stack<>();
+		ArrayList<Drone> droneArray = new ArrayList<>();
 		for(int ruk = 0;ruk<numberOfDrones;ruk++)
 		{
-			droneStack.push(new Drone(new Location(0, 0), null, null, false, ruk));
+			droneArray.add(new Drone(new Location(0, 0), null, null, false, Integer.parseInt(landscapeDefinition[4]), ruk));
 		}
 		GlobalClock.getClock();
 		
@@ -51,9 +52,13 @@ public class MainCompetition {
 			}
 			warehouseList.add(new Warehouse(new Location(Integer.parseInt(warehouseCoordinate1[0]),Integer.parseInt(warehouseCoordinate1[0])),inventory));
 			
-		}		
+		}
+		for(Drone dr: droneArray)
+		{
+			dr.setCurrentLocation(warehouseList.get(0).getLocation());
+		}
 		int numberOfOrders = Integer.parseInt(in.readLine());
-		Stack<Order> orderList = new Stack<Order>();
+		Stack<Order> orderStack = new Stack<Order>();
 		for(int i =0;i<numberOfOrders;i++)
 		{
 			String []orderCoordinates1 = in.readLine().split(" ");
@@ -67,11 +72,37 @@ public class MainCompetition {
 				int count = productTypesAndQUantities.containsKey(word) ? productTypesAndQUantities.get(word) : 0;
 				productTypesAndQUantities.put(word, count + 1);
 			}
-			orderList.push(new Order(new Location(Integer.parseInt(orderCoordinates1[0]), Integer.parseInt(orderCoordinates1[1])), productTypesAndQUantities));
+			orderStack.push(new Order(new Location(Integer.parseInt(orderCoordinates1[0]), Integer.parseInt(orderCoordinates1[1])), productTypesAndQUantities));
 		}
 		
-		while ( !orderList.isEmpty()) {
+		while ( !orderStack.isEmpty()) {
 			{
+				Order currentOrder = orderStack.pop();
+				
+				Location orderLocation = currentOrder.getLocation();
+				
+				for(Drone dr: droneArray)
+				{
+					if (!dr.isOccupied)
+					{
+						//Get preferred warehouse
+						Location droneCurrentLocation = dr.getLocation();
+						int shortestPath = Integer.MAX_VALUE;
+						Warehouse preferredWarehouse = warehouseList.get(0);
+						for(Warehouse wareh: warehouseList)
+						{
+							if(GetInstructions.distanceBetween(droneCurrentLocation, wareh.getLocation())<shortestPath)
+							{
+								if(wareh.hasEnoughProducts(currentOrder))
+								{
+									preferredWarehouse = wareh;
+									shortestPath = GetInstructions.distanceBetween(droneCurrentLocation, wareh.getLocation());
+								}
+							}
+						}
+						dr.load(preferredWarehouse, numberOfProducts, p)
+					}
+				}
 //				GetInstructions(orderList,);
 			}
 		}
