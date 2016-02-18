@@ -16,4 +16,8 @@ public class Product implements Comparable<Product> {
 	public int compareTo(Product o) {
 		return ((Integer)this.weight).compareTo(o.getWeight());
 	}
+	
+	public String toString(){
+		return "Product with id"+this.ID+" and weight "+this.weight;
+	}
 }

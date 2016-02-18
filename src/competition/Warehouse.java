@@ -17,19 +17,27 @@ public class Warehouse {
 		}
 		return true;
 	}
-	public Warehouse(Location loc, HashMap inventoryIn)
+	public Warehouse(int id, Location loc, HashMap inventoryIn)
 	{
+		this.ID = id;
 		this.location = loc;
-		inventoryIn = inventoryIn;
+		this.inventory = inventoryIn;
 	}
 
 	public boolean hasEnoughProducts(Order order) {
-		
-		return false;
+		for(Product prod: order.itemIDs.keySet()){
+			if(order.itemIDs.get(prod) > inventory.get(prod))
+				return false;
+		}
+		return true;
 	}
 
 	public Location getLocation() {
 		// TODO Auto-generated method stub
 		return location;
+	}
+	
+	public String toString(){
+		return "Warehouse id"+this.ID +" at ("+location.x +","+location.y+ ") and items" + inventory ; 
 	}
 }

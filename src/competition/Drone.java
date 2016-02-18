@@ -12,11 +12,16 @@ public class Drone implements Observer {
 	int ID;
 	Location location;
 	Order assignedOrder;
+	int capacity;
 	int time = 0;
-			
+	Product loaded;
+	boolean isOccupied;
+	int occupiedUntil;
+	
 	public Drone(Location currentLocation, Order assignedOrder, Product loaded,
-			boolean isOccupied, int ID) {
+			boolean isOccupied, int capacityIn, int ID) {
 		super();
+		this.capacity=capacityIn;
 		this.ID = ID;
 		this.location = currentLocation;
 		this.assignedOrder = assignedOrder;
@@ -54,9 +59,13 @@ public class Drone implements Observer {
 	public void setOccupied(boolean isOccupied) {
 		this.isOccupied = isOccupied;
 	}
-	Product loaded;
-	boolean isOccupied;
 
+	public int getOccupiedUntil() {
+		return occupiedUntil;
+	}
+	public void setOccupiedUntil(int occupiedUntil) {
+		this.occupiedUntil = occupiedUntil;
+	}
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		this.time = (Integer) arg1;		
@@ -70,7 +79,7 @@ public class Drone implements Observer {
 		return this.ID + " " + "L" + " " + w.ID + " " + p.ID + " " + numberOfProducts;
 	}
 	
-	public String deliver(Warehouse w, int numberOfProducts, Product p, Order o) {
+	public String deliver(Order o, int numberOfProducts, Product p) {
 		return this.ID + " " + "D" + " " + o.ID + " " + p.ID + " " + numberOfProducts;
 	}
 	
